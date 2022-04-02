@@ -1,0 +1,35 @@
+.pokemon {
+    &__head {
+        animation: pikaHead 2s alternate infinite;
+    }
+    &__pat {
+        animation: pikaPat 2s alternate infinite;
+    }
+    &__tail {  
+        animation: rotateTail 2s alternate infinite;
+    }
+    @keyframes pikaHead {
+        from {
+          transform: rotate(-1deg);
+        }
+        to {
+          transform: rotate(1deg);
+        }
+    }
+    @keyframes pikaPat {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(1.5deg);
+        }
+    }
+    @keyframes rotateTail {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(2deg);
+        }
+    }
+}

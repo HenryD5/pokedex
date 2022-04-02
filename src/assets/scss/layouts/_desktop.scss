@@ -1,0 +1,54 @@
+.view-app {
+    //background: #E5E5E5;
+    background: #F9F9F9;
+    font-family: 'Lato';
+    height: 100vh;
+    &__icon {
+        margin: 2rem 0;
+
+    }
+    &__title {
+        //font-family: 'Lato';
+        //font-style: normal;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 31px;
+        text-align: center;
+        color: $dark;
+        margin: 2rem 0;
+    }
+    &__coment {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 150%;
+        margin: 2rem 0;
+    }
+    &__title-empty {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 43px;
+        text-align: center;
+        color: $dark;
+        margin: 1.5rem 0;
+    }
+    &__coment-empty {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 150%;
+        margin: 1.5rem 0;
+    }
+}
+.max-570 {
+    position: relative;
+    max-width: 570px;
+    margin: auto;
+}
+.start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.view-list {
+    min-height: 100vh;
+}

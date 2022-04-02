@@ -1,0 +1,15 @@
+// BASE
+@import "base/base";
+
+// LAYOUTS - DESKTOP -MOBILE
+@import "layouts/desktop";
+
+// COMPONENTS
+@import "components/btn-go";
+@import "components/search";
+@import "components/item-list";
+@import "components/bottom-bar";
+@import "components/modal";
+
+// ANIMATIONS
+@import "animations/pokemon";

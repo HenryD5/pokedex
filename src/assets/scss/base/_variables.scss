@@ -1,0 +1,43 @@
+// Variables
+
+// Brand colors
+$brand-yellow: #ECA539 !default;
+$brand-red-dark: #C00E20 !default;
+$brand-red: #F22539 !default;
+$brand-dark: #353535 !default;
+$brand-dark-light: #5E5E5E !default;
+$brand-grey: #BFBFBF !default;
+$brand-grey-light: #E8E8E8 !default;
+$brand-white-primary: #F5F5F5!default;
+$brand-white-secondary: #F9F9F9 !default;
+$white: #ffffff !default;
+$black: #0000 !default;
+
+
+$primary:         $brand-yellow !default;
+$secondary:       $brand-red-dark !default;
+$danger:          $brand-red !default;
+$dark:            $brand-dark !default;
+$dark-light:      $brand-dark-light !default;
+$grey:            $brand-grey !default;
+$grey-light:      $brand-grey-light !default;
+$white-primary:   $brand-white-primary!default;
+$white-secondary: $brand-white-secondary!default;
+$white: $white!default;
+$black: $black!default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":         $primary,
+    "secondary":       $secondary,
+    "danger":          $danger,
+    "dark":            $dark,
+    "dark-light":      $dark-light,
+    "grey":            $grey,
+    "grey-light":      $grey-light,
+    "white-primary":   $white-primary,
+    "white-secondary": $white-secondary
+  ),
+  $theme-colors
+);

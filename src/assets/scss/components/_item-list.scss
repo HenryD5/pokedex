@@ -1,0 +1,32 @@
+.item-list {
+    margin: 1.2rem 0;
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    &__name {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 26px;
+        text-align: left;
+        width: calc(100% - 48px);
+    }
+}
+.favorite  {
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    background: #F5F5F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.active {
+        svg path {
+            fill: $primary;
+        }
+    }
+}

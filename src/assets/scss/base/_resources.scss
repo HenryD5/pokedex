@@ -1,0 +1,74 @@
+$pokeball-main-color: #e3001c;
+$pokeball-secondary-color: #000;
+$background-color: #fff;
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    &__circle {
+        animation: rotate-me 1s linear infinite;
+
+        .small-circle {
+            animation: change-color 1s linear infinite;
+        }
+    }
+    @mixin rotate-animation($degree) {
+        transform: rotate($degree);
+    }
+
+    @keyframes rotate-me {
+        0%{
+            @include rotate-animation(0deg);
+        }
+    
+        30%{
+            @include rotate-animation(45deg);
+        }
+        45% {
+            @include rotate-animation(0deg);
+        }
+        60% {
+            @include rotate-animation(120deg);
+        }
+    
+        80% {
+            @include rotate-animation(180deg);
+        }
+    
+        100% {
+            @include rotate-animation(360deg);
+        }
+    }
+    
+    @keyframes change-color {
+        0% {
+            fill: $pokeball-main-color;
+        }
+    
+        30%{
+            fill: $background-color;
+        }
+    
+        60% {
+            fill: $pokeball-main-color;
+        }
+    
+        80% {
+            fill: $background-color;
+        }
+    
+        100% {
+            fill: $background-color;
+        }
+    }
+}
