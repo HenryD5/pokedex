@@ -1,15 +1,14 @@
 .view-app {
     //background: #E5E5E5;
     background: #F9F9F9;
-    font-family: 'Lato';
     height: 100vh;
+    font-family: 'Lato';
+    font-style: normal;
     &__icon {
         margin: 2rem 0;
 
     }
     &__title {
-        //font-family: 'Lato';
-        //font-style: normal;
         font-weight: 700;
         font-size: 26px;
         line-height: 31px;
