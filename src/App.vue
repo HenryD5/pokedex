@@ -3,7 +3,15 @@
     <router-view />
   </div>
 </template>
-
+<script>
+import Pokemon from "@/mixins/pokemon";
+export default {
+  mixins: [Pokemon],
+  created() {
+    this.getStoreFavorites();
+  },
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

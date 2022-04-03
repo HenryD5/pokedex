@@ -3,15 +3,23 @@
     <Modal :is-modal="isActive" delete-header @closeModal="ignoreModal">
       <div class="md-detail">
         <div class="md-detail__content-img">
-          <div class="md-detail__img">
-            <img src="/img/images/pokemon.png" class="img-fluid" alt="" />
+          <div class="md-detail__img" v-if="getPokemon != null">
+            <img :src="getImgPokemon" :alt="getPokemon.name" />
           </div>
         </div>
-        <div class="md-detail__main">
-          <div class="md-detail__item">Name: <span>Squirtle</span></div>
-          <div class="md-detail__item">Weight: <span>20</span></div>
-          <div class="md-detail__item">Height: <span>18</span></div>
-          <div class="md-detail__item">Types: <span>Normal, Water</span></div>
+        <div class="md-detail__main" v-if="getPokemon != null">
+          <div class="md-detail__item">
+            Name: <span>{{ getPokemon.name | capitalize }}</span>
+          </div>
+          <div class="md-detail__item">
+            Weight: <span>{{ getPokemon.weight }}</span>
+          </div>
+          <div class="md-detail__item">
+            Height: <span>{{ getPokemon.height }}</span>
+          </div>
+          <div class="md-detail__item">
+            Types: <span>{{ getTypesText }}.</span>
+          </div>
         </div>
         <div class="md-detail__footer">
           <div class="md-detail__cta">
@@ -23,7 +31,12 @@
               <div v-else>Copied!</div>
             </button>
           </div>
-          <div class="favorite active">
+          <div
+            v-if="getPokemon != null"
+            class="favorite"
+            :class="{ active: activeFavorite(getPokemon.name) }"
+            @click="addFavorite({ name: getPokemon.name, url: '' })"
+          >
             <svg
               width="26"
               height="26"
@@ -43,11 +56,14 @@
   </div>
 </template>
 <script>
+import Pokemon from "@/mixins/pokemon";
 import Modal from "@/components/modals/Modal";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   components: {
     Modal,
   },
+  mixins: [Pokemon],
   props: {
     isActive: {
       type: Boolean,
@@ -57,17 +73,41 @@ export default {
   data: () => ({
     copy: false,
   }),
-  methods: {
-    ignoreModal() {
-      this.$emit("modalClose");
+  computed: {
+    ...mapGetters("pokemon", ["getPokemon"]),
+    getImgPokemon() {
+      if (this.getPokemon != null) {
+        return this.getPokemon.sprites.other.home.front_default;
+      } else {
+        return "/img/images/pokemon.png";
+      }
     },
-    confirm() {
-      this.$emit("confirm");
+    getTypesText() {
+      if (this.getPokemon != null) {
+        const types = this.getPokemon.types
+          .map((value) => {
+            const text = value.type.name;
+            text.toString();
+            const textVal = text.charAt(0).toUpperCase() + text.slice(1);
+            return ` ${textVal}`;
+          })
+          .toString();
+        return types;
+      } else {
+        return "";
+      }
+    },
+  },
+  methods: {
+    ...mapMutations("pokemon", ["SET_MODAL_DETAIL", "SET_POKEMON"]),
+    ignoreModal() {
+      this.SET_MODAL_DETAIL(false);
+      this.copy = false;
+      this.SET_POKEMON(null);
     },
     async copyCode() {
-      //this.copy = true;
-      this.copy = !this.copy;
-      let textCopy = `HOLA xD`;
+      this.copy = true;
+      let textCopy = `Just look!, Name: ${this.getPokemon.name}, Weight: ${this.getPokemon.weight}, Height: ${this.getPokemon.height} and Types: ${this.getTypesText}.`;
       await navigator.clipboard.writeText(textCopy);
     },
   },

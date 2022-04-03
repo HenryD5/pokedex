@@ -1,7 +1,13 @@
 <template>
   <div class="item-list">
-    <div class="item-list__name">Bulbasaur</div>
-    <div class="favorite active">
+    <div class="item-list__name" @click.prevent="viewDetail(data.name)">
+      {{ data.name | capitalize }}
+    </div>
+    <div
+      class="favorite"
+      :class="{ active: activeFavorite(data.name) }"
+      @click="addFavorite(data)"
+    >
       <svg
         width="26"
         height="26"
@@ -18,6 +24,23 @@
   </div>
 </template>
 <script>
-export default {};
+import { mapActions } from "vuex";
+import Pokemon from "@/mixins/pokemon";
+export default {
+  props: {
+    data: {
+      type: Object,
+      required: true,
+    },
+  },
+  mixins: [Pokemon],
+  computed: {},
+  methods: {
+    ...mapActions("pokemon", ["GET_POKEMON"]),
+    viewDetail(name) {
+      this.GET_POKEMON(name);
+    },
+  },
+};
 </script>
 <style lang="scss" scoped></style>

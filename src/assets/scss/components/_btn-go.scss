@@ -76,30 +76,3 @@
     box-shadow: 0 0 0 0 rgba(242, 37, 57, 0.144);
   }
 }
-.btn-loading {
-  color: transparent;
-  animation-play-state: running;
-  opacity: 1;
-  position: relative;
-  pointer-events: none;
-
-  &:hover, &:focus {
-    color: transparent;
-    box-shadow: none;
-  }
-
-  &:before {
-    content: "";
-    animation: spinner 1s linear infinite;
-    border: 2px solid #dedede;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    left: 50%;
-    opacity: inherit;
-    position: absolute;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    will-change: transform;
-  }
-}

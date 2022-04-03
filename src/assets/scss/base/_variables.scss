@@ -25,19 +25,3 @@ $white-primary:   $brand-white-primary!default;
 $white-secondary: $brand-white-secondary!default;
 $white: $white!default;
 $black: $black!default;
-
-$theme-colors: () !default;
-$theme-colors: map-merge(
-  (
-    "primary":         $primary,
-    "secondary":       $secondary,
-    "danger":          $danger,
-    "dark":            $dark,
-    "dark-light":      $dark-light,
-    "grey":            $grey,
-    "grey-light":      $grey-light,
-    "white-primary":   $white-primary,
-    "white-secondary": $white-secondary
-  ),
-  $theme-colors
-);

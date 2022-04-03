@@ -16,6 +16,7 @@
     </div>
     <div class="search__input">
       <input
+        v-model="search"
         class="form-control"
         placeholder="Search"
         type="search"
@@ -25,3 +26,26 @@
     </div>
   </div>
 </template>
+<script>
+import { mapMutations, mapState, mapGetters } from "vuex";
+export default {
+  data: () => ({
+    search: "",
+  }),
+  watch: {
+    search(val) {
+      if (this.getTabIndex != "all") {
+        this.SET_TAB_INDEX("all");
+      }
+      this.SET_TEXT_SEARCH(val);
+    },
+  },
+  computed: {
+    ...mapState("pokemon", ["textSearch"]),
+    ...mapGetters("pokemon", ["getTabIndex", "getTextSearch"]),
+  },
+  methods: {
+    ...mapMutations("pokemon", ["SET_TEXT_SEARCH", "SET_TAB_INDEX"]),
+  },
+};
+</script>

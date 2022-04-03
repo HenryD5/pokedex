@@ -6,6 +6,10 @@ import store from "./store";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Load Config
+import "./config/axios";
+import "./config/filters";
+
 Vue.config.productionTip = false;
 
 new Vue({
