@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Modal :is-modal="isActive" delete-header @closeModal="ignoreModal">
+    <Modal :is-modal="isActive" closeOuth @closeModal="ignoreModal">
       <div class="md-detail">
         <div class="md-detail__content-img">
           <div class="md-detail__img" v-if="getPokemon != null">
