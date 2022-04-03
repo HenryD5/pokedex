@@ -23,7 +23,11 @@ yarn lint
 ```
 https://pokedex-three-topaz.vercel.app/
 ```
-
+### Solution
+```
+- I used scss for its ease of syntax, variable declaration, file nesting, etc.
+- 
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
