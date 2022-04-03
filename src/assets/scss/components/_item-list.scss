@@ -2,17 +2,20 @@
     margin: 1.2rem 0;
     background: #FFFFFF;
     border-radius: 5px;
-    padding: 8px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     &__name {
+        padding: 8px 0 8px 15px;
         font-weight: 500;
         font-size: 22px;
         line-height: 26px;
         text-align: left;
         width: calc(100% - 48px);
+    }
+    &__start {
+        padding: 8px 15px 8px 0;
     }
 }
 .favorite  {

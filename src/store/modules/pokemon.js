@@ -78,7 +78,7 @@ export default {
           setTimeout(() => {
             context.commit("SET_LOADING", false);
             context.commit("SET_MODAL_DETAIL", true);
-          }, 1000);
+          }, 500);
         })
         .catch((error) => {
           context.commit("SET_LOADING", false);

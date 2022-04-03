@@ -72,10 +72,11 @@ export default {
   },
   methods: {
     ...mapActions("pokemon", ["GET_POKEMONS"]),
-    ...mapMutations("pokemon", ["SET_TAB_INDEX"]),
+    ...mapMutations("pokemon", ["SET_TAB_INDEX", "SET_TEXT_SEARCH"]),
   },
   destroyed() {
     this.SET_TAB_INDEX("all");
+    this.SET_TEXT_SEARCH("");
   },
 };
 </script>
